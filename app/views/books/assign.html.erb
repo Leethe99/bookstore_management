@@ -1,0 +1,14 @@
+<!-- app/views/books/assign.html.erb -->
+<h1>Assign Book</h1>
+<%= form_tag(update_assignment_book_path(@book), method: :patch) do %>
+  <div>
+    <%= label_tag 'Store' %>
+    <%= select_tag 'store_id', options_for_select(@stores.map { |store| [store.codename, store.id] }) %>
+  </div>
+  <div>
+    <%= label_tag 'Quantity' %>
+    <%= number_field_tag 'quantity', 1, min: 1 %>
+  </div>
+  <%= submit_tag 'Assign Book' %>
+<% end %>
+<%= link_to 'Back', @book %>

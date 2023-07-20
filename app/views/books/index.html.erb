@@ -6,6 +6,8 @@
       <th>Author</th>
       <th>Year</th>
       <th>Actions</th>
+      <th>stores</th>
+      
     </tr>
   </thead>
   <tbody>
@@ -16,6 +18,14 @@
         <td><%= book.year %></td>
         <td>
           <%= link_to 'Edit', edit_book_path(book) %>
+        </td>
+      <td>
+        <% @inventory.each do |i| %>
+          <%if i.book_id == book.id%>
+            <%= i.store_id %>
+            <%= i.quantity %>
+          <%end%>
+        <%end%>  
         </td>
       </tr>
     <% end %>
