@@ -2,6 +2,7 @@ class BooksController < ApplicationController
     def index
       @books = Book.all
       @inventory = Inventory.all
+      @stores = Store.all
     end
   
     def show
@@ -43,6 +44,7 @@ class BooksController < ApplicationController
     def assign
       @book = Book.find(params[:id])
       @stores = Store.all
+      @inventory = Inventory.all
     end
   
     def update_assignment

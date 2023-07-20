@@ -1,5 +1,12 @@
-<!-- app/views/books/assign.html.erb -->
 <h1>Assign Book</h1>
+<% @inventory.each do |i| %>
+    <% @stores.each do |s| %>
+        <%if i.store_id == s.id%>
+        <%= s.codename%>
+        <%end%>
+    <%end%>
+    <%= i .quantity%>
+<%end%>  
 <%= form_tag(update_assignment_book_path(@book), method: :patch) do %>
   <div>
     <%= label_tag 'Store' %>
@@ -7,7 +14,7 @@
   </div>
   <div>
     <%= label_tag 'Quantity' %>
-    <%= number_field_tag 'quantity', 1, min: 1 %>
+    <%= number_field_tag 'quantity', 0, min: 1 %>
   </div>
   <%= submit_tag 'Assign Book' %>
 <% end %>

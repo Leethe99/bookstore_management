@@ -5,14 +5,15 @@
         <%= book.author %>
         <%= book.year %>
 
-          <%= link_to 'Edit', edit_book_path(book) %>
-
         <% @inventory.each do |i| %>
-          <%if i.book_id == book.id%>
-            <%= i.store_id %>
-            <%= i.quantity %>
+          <% @stores.each do |s| %>
+              <%if i.store_id == s.id%>
+              <%= s.codename%>
+              <%end%>
           <%end%>
-        <%end%>  
+          <%= i .quantity%>
+         <%end%>   
+        <%= link_to 'Edit', edit_book_path(book) %>
     </div>
     <% end %>
 <%= link_to 'New Book', new_book_path %>
