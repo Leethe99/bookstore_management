@@ -15,9 +15,7 @@
         <td><%= store.address %></td>
         <td><%= store.phone %></td>
         <td>
-          <%= link_to 'Show', store_path(store) %>
           <%= link_to 'Edit', edit_store_path(store) %>
-          <%= link_to 'Delete', store_path(store), method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
     <% end %>

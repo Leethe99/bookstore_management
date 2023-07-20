@@ -2,3 +2,4 @@
 <%= render 'form', store: @store %>
 <%= link_to 'Show', @store %> |
 <%= link_to 'Back', stores_path %>
+<%= button_to "delete", store_path(@store), method: :delete, data:{turbo_confirm: "are you sure?"} %> 
