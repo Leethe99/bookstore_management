@@ -49,24 +49,32 @@ class BooksController < ApplicationController
     end
   
     def update_assignment
-    @book = Book.find(params[:id])
-    store_id = params[:store_id]
-    quantity = params[:quantity].to_i
-
-    if store_id.present? && quantity > 0
-      @store = Store.find_by(id: store_id)
-      if @store
-        inventory = @store.inventories.find_or_initialize_by(book_id: @book.id)
-        inventory.quantity = quantity
-        inventory.save
-        redirect_to assign_book_path, notice: ' updated successfully!'
+      @book = Book.find(params[:id])
+      store_id = params[:store_id]
+      quantity = params[:quantity].to_i
+    
+      if store_id.present? && quantity >= 0
+        @store = Store.find_by(id: store_id)
+    
+        if @store
+          if quantity > 0
+            inventory = @store.inventories.find_or_initialize_by(book_id: @book.id)
+            inventory.quantity = quantity
+            inventory.save
+          else
+            inventory = @store.inventories.find_by(book_id: @book.id)
+            inventory&.destroy
+          end
+    
+          redirect_to assign_book_path, notice: 'Inventory updated successfully!'
+        else
+          redirect_to assign_book_path, alert: 'Store not found!'
+        end
       else
-        redirect_to assign_book_path, alert: 'no store'
+        redirect_to assign_book_path, alert: 'Invalid quantity!'
       end
-    else
-      redirect_to assign_book_path, alert: 'nil'
     end
-  end
+    
 
     private
   
