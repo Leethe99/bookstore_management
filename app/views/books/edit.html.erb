@@ -1,5 +1,12 @@
-<%= render 'form', book: @book %>
-<%= link_to 'Back', books_path %>
-<%= link_to 'assign', assign_book_path %>
+<div class="form">
+    <div class="item">
+        <%= render 'form', book: @book %>
+        <div class="editButton">
+            <%= link_to 'Back', books_path %>
+            <div><%= link_to 'assign', assign_book_path %></div>
 
-<%= button_to "delete", book_path(@book), method: :delete, data:{turbo_confirm: "are you sure?"} %> 
+            <%= button_to "delete", book_path(@book), method: :delete, data:{turbo_confirm: "are you sure?"} %> 
+        </div>
+        
+    </div>
+</div>

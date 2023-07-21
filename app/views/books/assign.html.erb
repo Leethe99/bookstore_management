@@ -1,12 +1,24 @@
-<h1>Assign Book</h1>
-<% @inventory.each do |i| %>
-    <% @stores.each do |s| %>
-        <%if i.store_id == s.id%>
-        <%= s.codename%>
-        <%end%>
-    <%end%>
-    <%= i .quantity%>
-<%end%>  
+<div class="form">
+  <div class="item">
+ <p>Availability</p>
+            <div class="store">
+                <% @inventory.each do |i| %>
+                <%if i.book_id == @book.id%>
+                <div class="store">
+                <% @stores.each do |s| %>
+                    <%if i.store_id == s.id%>
+                    <%= s.codename%>
+                    <%end%>
+                <%end%>
+                <b>has</b>
+                <%= i .quantity%>
+                <b>units</b>
+                </div>
+                <%end%>
+                <%end%>   
+  </div>
+
+<div class="item">
 <%= form_tag(update_assignment_book_path(@book), method: :patch) do %>
   <div>
     <%= label_tag 'Store' %>
@@ -18,4 +30,6 @@
   </div>
   <%= submit_tag 'Assign Book' %>
 <% end %>
-<%= link_to 'Back', @book %>
+<%= link_to 'Back', books_path %>
+</div>
+</div>
