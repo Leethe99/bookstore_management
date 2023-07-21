@@ -1,5 +1,14 @@
-<h1>Edit Store</h1>
-<%= render 'form', store: @store %>
-<%= link_to 'Show', @store %> |
-<%= link_to 'Back', stores_path %>
-<%= button_to "delete", store_path(@store), method: :delete, data:{turbo_confirm: "are you sure?"} %> 
+
+
+<div class="form">
+    <div class="item">
+        <%= render 'form', store: @store %>
+        <div class="editButton">
+            <%= link_to 'Back', stores_path %>
+            <div><%= link_to 'assign', assign_book_path %></div>
+
+            <%= button_to "delete", store_path(@store), method: :delete, data:{turbo_confirm: "are you sure?"} %> 
+        </div>
+        
+    </div>
+</div>
