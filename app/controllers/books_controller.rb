@@ -30,7 +30,7 @@ class BooksController < ApplicationController
     def update
       @book = Book.find(params[:id])
       if @book.update(book_params)
-        redirect_to root_path, notice: 'Book updated successfully!'
+        redirect_to root_path
       else
         render :edit
       end
@@ -38,8 +38,9 @@ class BooksController < ApplicationController
   
     def destroy
       @book = Book.find(params[:id])
+      @book.inventories.destroy_all
       @book.destroy
-      redirect_to root_path, notice: 'Book deleted successfully!'
+      redirect_to root_path
     end
     
     def assign
