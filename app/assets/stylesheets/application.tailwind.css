@@ -2,12 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
-
-@layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
-  }
+body{
+  background-color: #ede0d4;
+}
+nav {
+  background-color: #414833;
 }
 
-*/
+nav li:hover{
+ color: #7f5539;
+}
