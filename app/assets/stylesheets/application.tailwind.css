@@ -12,3 +12,58 @@ nav {
 nav li:hover{
  color: #7f5539;
 }
+
+.inv{
+  padding-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(4,225px);
+  gap: 30px;
+  justify-content: center;
+}
+@media (max-width: 1000px){
+  .inv{
+    grid-template-columns: repeat(2,225px);
+  }
+}
+@media (max-width: 500px){
+  .inv{
+    grid-template-columns: repeat(1,225px);
+  }
+}
+.item{
+  padding: 10px;
+  border-radius: 25px;
+  background-color: #FFF;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+}
+.stores{
+  padding: 25px;
+}
+
+h3{
+  font-size: 30px;
+}
+p{
+  font-size: 20px;
+}
+.buttons{
+  display: flex;
+  gap: 8px;
+  font-size: 16px;
+}
+.new{
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+.new a{
+  padding: 5px;
+  border-radius: 15px;
+  background-color: #7f5539;
+  color: #ede0d4;
+}
+
+.edit{
+  display: flex;
+  justify-content: center;
+}

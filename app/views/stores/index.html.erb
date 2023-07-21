@@ -1,9 +1,15 @@
+
+<div class="new"><%= link_to 'New Store', new_store_path if user_signed_in? %></div>
+<div class="inv" id="inv">
     <% @stores.each do |store| %>
-    <div>
-        <%= store.codename %>
+    <div  class="item">
+        <h3><%= store.codename %></h3>
+       <div class="details">
         <%= store.address %>
         <%= store.phone %>
-        <%= link_to 'Edit', edit_store_path(store) if user_signed_in? %>
-      </div>
+        <div class="edit"><%= link_to 'Edit', edit_store_path(store) if user_signed_in? %></div>
+       </div> 
+       
+    </div>
     <% end %>
-<%= link_to 'New Store', new_store_path if user_signed_in? %>
+</div>
