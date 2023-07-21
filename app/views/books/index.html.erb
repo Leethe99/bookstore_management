@@ -8,9 +8,10 @@
         <%= book.year %>
        </div> 
        <div class="stores">
-            <p>availability</p>
+            <p>Availability</p>
             <div class="store">
                 <% @inventory.each do |i| %>
+                <%if i.book_id == book.id%>
                 <div class="store">
                 <% @stores.each do |s| %>
                     <%if i.store_id == s.id%>
@@ -21,13 +22,13 @@
                 <%= i .quantity%>
                 <b>units</b>
                 </div>
+                <%end%>
                 <%end%>   
-            
         </div>
        
     </div>
     <div class="edit"><%= link_to 'Edit', edit_book_path(book) if user_signed_in? %></div>
-     
+     </div>
     <% end %>
-</div>
+
        

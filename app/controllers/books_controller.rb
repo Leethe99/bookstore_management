@@ -17,7 +17,7 @@ class BooksController < ApplicationController
     def create
       @book = Book.new(book_params)
       if @book.save
-        redirect_to book_path(@book), notice: 'Book created successfully!'
+        redirect_to root_path, notice: 'Book created successfully!'
       else
         render :new
       end
@@ -30,7 +30,7 @@ class BooksController < ApplicationController
     def update
       @book = Book.find(params[:id])
       if @book.update(book_params)
-        redirect_to book_path(@book), notice: 'Book updated successfully!'
+        redirect_to root_path, notice: 'Book updated successfully!'
       else
         render :edit
       end
@@ -39,7 +39,7 @@ class BooksController < ApplicationController
     def destroy
       @book = Book.find(params[:id])
       @book.destroy
-      redirect_to books_path, notice: 'Book deleted successfully!'
+      redirect_to root_path, notice: 'Book deleted successfully!'
     end
     
     def assign
@@ -59,12 +59,12 @@ class BooksController < ApplicationController
         inventory = @store.inventories.find_or_initialize_by(book_id: @book.id)
         inventory.quantity = quantity
         inventory.save
-        redirect_to @book, notice: 'Book assignment updated successfully!'
+        redirect_to assign_book_path, notice: 'Book assignment updated successfully!'
       else
-        redirect_to @book, alert: 'Invalid store.'
+        redirect_to assign_book_path, alert: 'no store'
       end
     else
-      redirect_to @book, alert: 'Invalid assignment.'
+      redirect_to assign_book_path, alert: 'nil'
     end
   end
 
