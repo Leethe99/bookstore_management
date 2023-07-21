@@ -4,7 +4,7 @@
         <%= store.codename %>
         <%= store.address %>
         <%= store.phone %>
-        <%= link_to 'Edit', edit_store_path(store) %>
+        <%= link_to 'Edit', edit_store_path(store) if user_signed_in? %>
       </div>
     <% end %>
-<%= link_to 'New Store', new_store_path %>
+<%= link_to 'New Store', new_store_path if user_signed_in? %>

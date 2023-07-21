@@ -13,7 +13,7 @@
           <%end%>
           <%= i .quantity%>
          <%end%>   
-        <%= link_to 'Edit', edit_book_path(book) %>
+        <%= link_to 'Edit', edit_book_path(book) if user_signed_in? %>
     </div>
     <% end %>
-<%= link_to 'New Book', new_book_path %>
+<%= link_to 'New Book', new_book_path if user_signed_in? %>
