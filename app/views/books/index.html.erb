@@ -2,9 +2,9 @@
 <div class="inv" id="inv">
     <% @books.each do |book| %>
     <div  class="item">
-        <h3><%= book.title %></h3>
+        <h3><%= book.title.capitalize %></h3>
        <div class="details">
-        <%= book.author %>
+        <%= book.author.capitalize %>
         <%= book.year %>
        </div> 
        <div class="stores">
@@ -15,7 +15,7 @@
                 <div class="store">
                 <% @stores.each do |s| %>
                     <%if i.store_id == s.id%>
-                    <%= s.codename%>
+                    <%= s.codename.capitalize%>
                     <%end%>
                 <%end%>
                 <b>has</b>

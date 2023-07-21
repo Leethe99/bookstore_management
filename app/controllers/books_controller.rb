@@ -59,7 +59,7 @@ class BooksController < ApplicationController
         inventory = @store.inventories.find_or_initialize_by(book_id: @book.id)
         inventory.quantity = quantity
         inventory.save
-        redirect_to assign_book_path, notice: 'Book assignment updated successfully!'
+        redirect_to assign_book_path, notice: ' updated successfully!'
       else
         redirect_to assign_book_path, alert: 'no store'
       end

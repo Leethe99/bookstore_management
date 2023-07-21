@@ -3,7 +3,7 @@
 <div class="inv" id="inv">
     <% @stores.each do |store| %>
     <div  class="item">
-        <h3><%= store.codename %></h3>
+        <h3><%= store.codename.capitalize %></h3>
        <div class="details">
         <%= store.address %>
         <%= store.phone %>
